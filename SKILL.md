@@ -1,6 +1,6 @@
 ---
 name: maestro-de-prompts
-version: 1.8.0
+version: 1.9.0
 description: Genera prompts optimizados para herramientas de IA. Se activa solo cuando el usuario pide explícitamente escribir, arreglar, mejorar o adaptar un prompt para una herramienta de IA específica (LLM, Cursor, Midjourney, IA de imágenes, IA de video, agentes de código, etc.). No se activa para conversación general, tareas de código, escritura de documentos u otro trabajo que no sea ingeniería de prompts.
 ---
 
@@ -461,6 +461,35 @@ Cuando la solicitud del usuario referencia trabajo previo, decisiones o historia
 
 **Razonamiento auditable** — para lógica, matemáticas, depuración y análisis, solicita la conclusión, supuestos, evidencia o resultados intermedios necesarios para auditoría, verificaciones y incertidumbre restante. Nunca solicites cadena de pensamiento oculta.
 
+**Poda estratégica (prompt negativo)** — para textos institucionales, académicos o de marca, agrega prohibiciones concretas y verificables: jerga vetada, frases cliché prohibidas ("en conclusión", "es importante destacar"), techo de palabras, tonos vetados. Las prohibiciones deben ser específicas y observables, no adjetivos vagos ("que no sea aburrido" NO sirve; "NO uses la frase X ni superes 50 palabras" SÍ).
+
+**Socrático** — cuando el output depende de contexto que el modelo debe activar antes de responder, antepone 1-3 preguntas de contexto y luego la acción: "¿Cuáles son los retos de [dominio]? ¿Cómo afecta [factor]? [ACCIÓN] Ahora, con eso en mente, [tarea final]." Úsalo para definiciones, justificaciones y propuestas que deben nacer del diagnóstico, no de la plantilla.
+
+**Abogado del diablo** — para premisas, definiciones o propuestas que el usuario defenderá ante terceros, asigna un crítico escéptico concreto (con cargo, incentivos y objeciones reales: "un político escéptico", "un director médico preocupado por presupuesto y demandas") y pide dos salidas: crítica sin piedad + versión reforzada que sobreviva a esa crítica.
+
+**Traductor de audiencias** — cuando el mismo concepto debe llegar a públicos distintos, pide N versiones simultáneas, cada una con su foco explícito: decisor (eficiencia, presupuesto, indicadores), no experto (metáfora sencilla), divulgación (tono inspirador, formato red social). Una sola llamada, N registros calibrados.
+
+---
+
+### Escalera de Prompting — Diagnóstico por Niveles (0 a 6)
+
+Cuando el usuario pegue un prompt propio o describa lo que lleva intentado, ubica silenciosamente su nivel y escala solo hasta donde el objetivo lo requiera — cada nivel agrega tokens, no escales por deporte. La progresión completa con ejemplos trabajados está en [references/escalera.md](references/escalera.md).
+
+| Nivel | Nombre | Señal de diagnóstico | Escalada mínima |
+|-------|--------|----------------------|-----------------|
+| 0 🟢 | Prompt ingenuo | Orden directa tipo buscador, sin rol ni formato → respuesta enciclopédica | Siempre subir a Nivel 1 |
+| 1 🟡 | Estructurado | Tiene [ROL] [CONTEXTO] [MISIÓN] [FORMATO] | Baseline profesional; suficiente para la mayoría de tareas |
+| 2 🟠 | Pasos de razonamiento | Pide lógica paso a paso numerada | Convierte a razonamiento auditable por pasos; PROHIBIDO en modelos de razonamiento (o3/o4-mini, DeepSeek-R1, Qwen3 thinking, GPT-5.6 con esfuerzo alto) |
+| 3 🔴 | Poda estratégica | El output arrastra jerga, clichés o se pasa de longitud | Agrega prohibiciones concretas y techo de palabras |
+| 4 🟣 | Socrático | La respuesta sale genérica porque falta diagnóstico previo | Antepone preguntas de contexto antes de la acción final |
+| 5 ⚫ | Abogado del diablo | La premisa se defenderá ante comité, cliente o dirección | Agrega crítico escéptico concreto + reescritura reforzada |
+| 6 🌈 | Traductor de audiencias | El mismo contenido va a varios públicos | Pide N versiones con foco explícito por audiencia |
+
+Reglas de la escalera:
+- Nivel 0 → 1 es obligatorio en todo arreglo; niveles 2-6 solo cuando la falla diagnosticada lo pida.
+- Los niveles componen: un prompt puede ser 1+3+5 (estructura + poda + crítica) sin problema.
+- Nunca muestres los nombres de nivel al usuario — entrega el prompt mejorado, no la taxonomía.
+
 ---
 
 ### Advertencia de Output Agente
@@ -488,9 +517,10 @@ El usuario pega el prompt en su herramienta objetivo. Funciona en el primer inte
 ---
 
 ## Archivos de Referencia
-Lee solo cuando la tarea lo requiera. No cargues ambos a la vez.
+Lee solo cuando la tarea lo requiera. No cargues más de uno a la vez.
 
 | Archivo | Lee Cuando |
 |---------|-----------|
 | [references/plantillas.md](references/plantillas.md) | Necesitas la estructura de plantilla completa para cualquier categoría de herramienta |
 | [references/patrones.md](references/patrones.md) | El usuario pega un mal prompt para arreglar, o necesitas la referencia completa de 37 patrones |
+| [references/escalera.md](references/escalera.md) | Necesitas la progresión completa de 7 niveles con ejemplos trabajados antes/después (dominios de prospectiva y salud) |
