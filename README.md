@@ -270,7 +270,7 @@ Maestro de Prompts elige la arquitectura correcta para cada tarea automáticamen
 
 ---
 
-## 🛡️ 5 Técnicas Seguras, Aplicadas Cuando se Necesitan
+## 🛡️ 9 Técnicas Seguras, Aplicadas Cuando se Necesitan
 
 Maestro de Prompts solo usa técnicas con efectos confiables y acotados. Métodos conocidos por producir alucinaciones o output impredecible (Tree of Thought, Graph of Thought, Universal Self-Consistency, encadenamiento de prompts) están explícitamente excluidos.
 
@@ -281,6 +281,28 @@ Maestro de Prompts solo usa técnicas con efectos confiables y acotados. Método
 | **Etiquetas Estructurales XML** | Envuelve secciones en XML para herramientas basadas en Claude que las parsean confiablemente |
 | **Anclajes de Grounding** | Agrega reglas anti-alucinación para tareas factuales y de citación |
 | **Razonamiento Auditable** | Solicita conclusiones, supuestos, evidencia y verificación sin razonamiento oculto |
+| **Poda Estratégica** | Prohíbe jerga, clichés y exceso de longitud con restricciones concretas y verificables |
+| **Socrático** | Activa el diagnóstico de contexto con preguntas previas antes de ejecutar la tarea final |
+| **Abogado del Diablo** | Somete premisas a un crítico escéptico concreto y reescribe la versión que sobrevive |
+| **Traductor de Audiencias** | Adapta un mismo concepto a N públicos con foco, metáfora y tono calibrados en una sola llamada |
+
+---
+
+## 🪜 Escalera de Prompting — Diagnóstico por Niveles (0 a 6)
+
+Cuando le pegas un prompt propio, Maestro de Prompts ubica su nivel y lo escala solo hasta donde tu objetivo lo requiere — cada nivel agrega tokens, así que no escala por deporte.
+
+| Nivel | Nombre | Qué Arregla |
+|-------|--------|-------------|
+| 0 🟢 | Prompt Ingenuo | Órdenes tipo buscador que producen respuestas enciclopédicas → sube a estructura |
+| 1 🟡 | Estructurado | [ROL] [CONTEXTO] [MISIÓN] [FORMATO] — el baseline profesional |
+| 2 🟠 | Pasos de Razonamiento | Lógica paso a paso auditable (nunca en modelos de razonamiento nativo) |
+| 3 🔴 | Poda Estratégica | Jerga, clichés y exceso de longitud fuera del texto |
+| 4 🟣 | Socrático | Respuestas genéricas por falta de diagnóstico de contexto previo |
+| 5 ⚫ | Abogado del Diablo | Premisas débiles que no sobrevivirían a un comité o cliente escéptico |
+| 6 🌈 | Traductor de Audiencias | Un mismo contenido calibrado para varios públicos a la vez |
+
+La progresión completa con ejemplos trabajados en prospectiva e investigación en salud está en [references/escalera.md](references/escalera.md).
 
 ---
 
@@ -396,6 +418,7 @@ Esta es la sola corrección más grande para sesiones largas. La mayoría de re-
 
 ## ℹ️ Historial de Versiones
 
+- **1.9.0** — Agregada la Escalera de Prompting (Niveles 0–6) como sistema de diagnóstico y escalada de prompts, integrada desde talleres prácticos de prompting estratégico (prospectiva e investigación en salud). Cuatro técnicas seguras nuevas: Poda Estratégica, Socrático, Abogado del Diablo y Traductor de Audiencias. Nuevo archivo de referencia `references/escalera.md` con la progresión completa y ejemplos trabajados. Eliminadas las bases en inglés de la versión anterior (`references/patterns.md`, `references/templates.md`); el contenido canónico vive en las versiones en español.
 - **1.8.0** — Actualización de modelos actuales. Agregado Claude Fable 5, Opus 5, Sonnet 5, GPT-5.6 Sol/Terra/Luna, Codex y enrutamiento Grok 4.6. Reemplazadas solicitudes de cadena de pensamiento oculta con razonamiento auditable y generalizado el brief de tarea de Claude para modelos actuales de pensamiento adaptativo.
 - **1.7.0** — Compatibilidad con Opus 4.8. Enrutamiento Claude 4.x consciente de versión: consejo durable generalizado a través de 4.6/4.7/4.8, agregado perfil Opus 4.8 (default actual), mantenido Opus 4.7 etiquetado. Des-hardcodeada la nota de nivel de esfuerzo (ahora gestionada por harness). Plantilla M y patrón 36 cubren 4.7 y 4.8. Arreglado un fragmento suelto en patterns.md.
 - **1.6.0** — Actualización Opus 4.7. Agregada Plantilla M (Brief de Tarea Opus 4.7). Actualizado enrutamiento Claude y Claude Code para literalismo, pensamiento adaptativo, esfuerzo xhigh e higiene de sesión. Agregados patrones 36–37.
