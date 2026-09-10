@@ -2,103 +2,103 @@
 
 <br/>
 
-A Claude skill that writes the accurate prompts for any AI tool. Zero tokens or credits wasted. Full context and memory retention. No re-prompting your way to an answer you should have gotten on attempt one.
+Un skill de Claude que escribe los prompts precisos para cualquier herramienta de IA. Cero tokens o créditos desperdiciados. Retención completa de contexto y memoria. Sin re-promptear hasta una respuesta que deberías haber obtenido en el primer intento.
 
-**Works with:** Claude, ChatGPT, Codex, Grok, Gemini, o1/o3, MiniMax, Cursor, Claude Code, GitHub Copilot, Windsurf, Bolt, v0, Lovable, Devin, Perplexity, Midjourney, DALL-E, Stable Diffusion, ComfyUI, Sora, Runway, ElevenLabs, Zapier, Make, and any AI tool you throw at it.
+**Funciona con:** Claude, ChatGPT, Codex, Grok, Gemini, o1/o3, MiniMax, Cursor, Claude Code, GitHub Copilot, Windsurf, Bolt, v0, Lovable, Devin, Perplexity, Midjourney, DALL-E, Stable Diffusion, ComfyUI, Sora, Runway, ElevenLabs, Zapier, Make, y cualquier herramienta de IA que le lances.
 
 ---
 
-## 🚀 Installation
+## 🚀 Instalación
 
-### RECOMMENDED - Claude.ai (browser)
+### RECOMENDADO - Claude.ai (navegador)
 
-1. Download this repo as a ZIP
-2. Go to **claude.ai → Sidebar → Customize → Skills → Upload a Skill**
+1. Descarga este repo como ZIP
+2. Ve a **claude.ai → Barra lateral → Personalizar → Skills → Subir un Skill**
 
 
-### OR Clone directly into Claude Code skills directory (Not Suggested)
+### O clona directamente en el directorio de skills de Claude Code (No recomendado)
 
 ```bash
 mkdir -p ~/.claude/skills
-git clone https://github.com/nidhinjs/prompt-master.git ~/.claude/skills/prompt-master
+git clone https://github.com/Carlosyekana/Tutor-prompt.git ~/.claude/skills/maestro-de-prompts
 ```
 
-## 🔥 The Problem This Solves
+## 🔥 El Problema que Esto Resuelve
 
-Every AI user wastes credits the same way:
+Cada usuario de IA desperdicia créditos de la misma manera:
 
-> Write vague prompt → get wrong output → re-prompt → get closer → re-prompt again → finally get what you wanted on attempt 4
+> Escribe un prompt vago → obtén output incorrecto → re-promptea → acércate más → re-promptea de nuevo → finalmente obtén lo que querías en el intento 4
 
-That's 3 wasted API calls. Multiply by 50 prompts a day. That's real money and real time gone.
+Eso son 3 llamadas a API desperdiciadas. Multiplica por 50 prompts al día. Eso es dinero real y tiempo real perdido.
 
-### The key insight
+### La idea clave
 
-> "The best prompt is not the longest. It's the one where every word is load-bearing."
+> "El mejor prompt no es el más largo. Es aquel donde cada palabra carga peso."
 
-Most "prompt generators" make prompts longer. This skill makes them sharper.
+La mayoría de "generadores de prompts" hacen los prompts más largos. Este skill los hace más afilados.
 
 ---
 
-## 🎯 Usage
+## 🎯 Uso
 
-In Claude, you can invoke the skill naturally:
-
-```
-Write me a prompt for Cursor to refactor my auth module
-```
+En Claude, puedes invocar el skill naturalmente:
 
 ```
-I need a prompt for Claude Code to build a REST API — ask me what you need to know
+Escríbeme un prompt para Cursor para refactorizar mi módulo de autenticación
 ```
 
 ```
-Here's a bad prompt I wrote for GPT-4o, fix it: [paste prompt]
+Necesito un prompt para Claude Code para construir una API REST — pregúntame lo que necesitas saber
 ```
 
 ```
-Generate a Midjourney prompt for a cyberpunk city at night
+Aquí hay un mal prompt que escribí para GPT-4o, arréglalo: [pega prompt]
 ```
 
 ```
-I have a reference image — help me write a prompt to edit just the head angle
+Genera un prompt de Midjourney para una ciudad cyberpunk de noche
 ```
 
 ```
-Break this prompt down and adapt it for Stable Diffusion
+Tengo una imagen de referencia — ayúdame a escribir un prompt para editar solo el ángulo de la cabeza
 ```
 
-Or explicitly invoke it:
+```
+Descompón este prompt y adáptalo para Stable Diffusion
+```
+
+O invócalo explícitamente:
 
 ```
-/prompt-master
+/maestro-de-prompts
 
-I want to ask Claude Code to build a todo app with React and Supabase
+Quiero pedirle a Claude Code que construya una app de tareas con React y Supabase
 ```
 
 ---
 
-## How It Works
+## Cómo Funciona
 
-Prompt Master runs a structured pipeline on every request:
+Maestro de Prompts ejecuta un pipeline estructurado en cada solicitud:
 
-1. **Detects the target tool** — figures out which AI system the prompt is for and routes silently to the right approach
-2. **Extracts 9 dimensions of intent** — task, input, output, constraints, context, audience, memory, success criteria, examples
-3. **Asks targeted clarifying questions** — max 3 questions if critical info is missing, never more
-4. **Routes to the right framework** — picks and applies the correct prompt architecture automatically, never shown to the user
-5. **Applies safe techniques only** — role assignment, few-shot examples, XML structure, grounding anchors, memory block as needed
-6. **Checks model recency** — verifies exact models and controls against official provider docs when the request depends on "latest"
-7. **Runs a token efficiency audit** — strips every word that doesn't change the output
-8. **Delivers the prompt** — one clean copyable block with a one-line strategy note
+1. **Detecta la herramienta objetivo** — descubre para qué sistema de IA es el prompt y enruta silenciosamente al enfoque correcto
+2. **Extrae 9 dimensiones de intención** — tarea, input, output, restricciones, contexto, audiencia, memoria, criterios de éxito, ejemplos
+3. **Hace preguntas clarificadoras enfocadas** — máximo 3 preguntas si falta información crítica, nunca más
+4. **Enruta a la plantilla correcta** — elige y aplica la arquitectura de prompt correcta automáticamente, nunca mostrada al usuario
+5. **Aplica solo técnicas seguras** — asignación de rol, ejemplos few-shot, estructura XML, anclajes de grounding, bloque de memoria según sea necesario
+6. **Verifica recencia de modelo** — verifica modelos exactos y controles contra documentación oficial del proveedor cuando la solicitud depende de "el más reciente"
+7. **Ejecuta una auditoría de eficiencia de tokens** — elimina cada palabra que no cambia el output
+8. **Entrega el prompt** — un bloque limpio copiable con una nota de estrategia de una línea
 
 ---
-## Full Example #1: Generating Prompts for Images
+## Ejemplo Completo #1: Generando Prompts para Imágenes
 
-### User Input
+### Input del Usuario
 ```
-Write me a midjourney prompt for a realistic samurai standing in the rain at night
+Escríbeme un prompt de midjourney para un samurái realista parado bajo la lluvia de noche
 ```
 
-### Generated Prompt
+### Prompt Generado
 ```
 lone samurai standing in heavy rain at night, traditional armor, 
 neon reflections on wet cobblestone street, cinematic lighting, 
@@ -107,20 +107,20 @@ shallow depth of field --ar 16:9 --v 6 --style raw
 
 negative: blurry, low quality, watermark, cartoon, anime, extra limbs
 ```
-**🎯 Target:** Midjourney · **⚡ Framework:** Visual Descriptor · **💰 Tokens:** Light (~60) · **💡 Strategy:** Comma-separated descriptors over prose, lighting and mood anchored early, aspect ratio and version locked, negative prompt prevents style drift.
+**🎯 Objetivo:** Midjourney · **⚡ Framework:** Descriptor Visual · **💰 Tokens:** Ligero (~60) · **💡 Estrategia:** Descriptores separados por comas sobre prosa, iluminación y ambiente anclados temprano, relación de aspecto y versión bloqueadas, prompt negativo previene deriva de estilo.
 
 ---
-## Full Example #2: Generating Prompts for Coding
+## Ejemplo Completo #2: Generando Prompts para Código
 
-### User Input
+### Input del Usuario
 ```
-Build a claude code prompt for a landing page for a business 
-dashboard that looks and feels exactly like notion - smooth animations, 
-clean ui
+Construye un prompt de claude code para una landing page para un 
+business dashboard que se vea y sienta exactamente como notion - animaciones suaves, 
+UI limpia
 ```
 
 
-### Generated Prompt
+### Prompt Generado
 ```
 Objective:
 Build a fully detailed, production-quality static landing page for a 
@@ -188,235 +188,234 @@ Done When:
 - Hover states work on all interactive elements
 - Opens in browser with zero console errors
 ```
-**🎯 Target:** Claude Code · **💰 Tokens:** Medium (~380) · **💡 Strategy:** Every vague Notion aesthetic cue translated into exact hex values and pixel specs — Claude Code cannot guess wrong. Animations defined with exact timing, method, and trigger so there is no interpretation needed.
+**🎯 Objetivo:** Claude Code · **💰 Tokens:** Medio (~380) · **💡 Estrategia:** Cada pista estética vaga de Notion traducida a valores hex exactos y especificaciones de píxel — Claude Code no puede adivinar mal. Animaciones definidas con timing, método y trigger exactos para que no haya interpretación necesaria.
 
 ---
 
-## 🤝 Works With Any AI Tool
+## 🤝 Funciona con Cualquier Herramienta de IA
 
-Prompt Master includes specific profiles for 20+ tools. For anything not on the list, it uses a **Universal Fingerprint**: 4 questions that let it write a quality prompt for any AI system it has never seen before.
+Maestro de Prompts incluye perfiles específicos para 20+ herramientas. Para cualquier cosa no en la lista, usa una **Huella Digital Universal**: 4 preguntas que le permiten escribir un prompt de calidad para cualquier sistema de IA que nunca haya visto antes.
 
 <details>
-<summary><h3> Click to view all 30+ tool profiles </h3></summary>
+<summary><h3> Haz clic para ver todos los 30+ perfiles de herramientas </h3></summary>
 
-| Tool | Category | What Prompt Master Fixes |
+| Herramienta | Categoría | Qué Arregla Maestro de Prompts |
 |------|----------|--------------------------|
-| **Claude 5 / current Claude** | Reasoning and agentic LLM | Model-aware effort, scope, XML structure, and delegation control |
-| **ChatGPT / GPT-5.6** | Reasoning and agentic LLM | Sol/Terra/Luna routing, lean contracts, autonomy and effort control |
-| **Codex** | Coding agent | File scope, approval boundaries, verification, bounded subagents |
-| **Grok 4.6** | Reasoning and agentic LLM | Search grounding, reasoning effort, tools, caching, and stop conditions |
-| **Gemini 2.x** | Reasoning LLM | Grounding anchors, citation rules, format locks |
-| **o3 / o4-mini** | Thinking LLM | Short clean instructions only — never adds CoT (they think internally) |
-| **Ollama** | Local LLM | Asks which model is loaded, includes system prompt for Modelfile |
-| **Qwen 2.5 / Qwen3** | Open-weight LLM | Chat template format, thinking vs non-thinking mode detection |
-| **Local models (Llama, Mistral)** | Open-weight LLM | Shorter prompts, simpler structure, no complex nesting |
-| **DeepSeek-R1** | Reasoning LLM | Short clean instructions, strips CoT, suppresses thinking output if needed |
-| **MiniMax (M3 / M2.7)** | Reasoning LLM | Temperature clamping, thinking tag control, structured output optimization |
-| **Claude Code** | Agentic AI | Stop conditions, file scope, checkpoint output |
-| **Cursor / Windsurf** | IDE AI | File path, function name, do-not-touch list, sequential prompt guidance |
-| **Cline (formerly Claude Dev)** | Agentic IDE | File scope, approval gates, stop conditions, task breakdown |
-| **GitHub Copilot** | Autocomplete AI | Exact function contract as docstring |
-| **Antigravity** | Agentic IDE | Task-based prompting, Artifact verification, autonomy level |
-| **Bolt / v0 / Lovable** | Full-stack generator | Stack spec, version, what NOT to scaffold |
-| **Figma Make** | Full-stack generator | Component name references, frame-to-code scope |
-| **Google Stitch** | Full-stack generator | Interface goal over implementation, Material Design 3 spec |
-| **Devin / SWE-agent** | Autonomous agent | Starting state, target state, stop conditions |
-| **Manus** | Autonomous agent | Task outcome focus, permission scope, memory anchors |
-| **OpenAI Computer Use** | Computer-use agent | Screen state, allowed apps, stop before irreversible actions |
-| **Perplexity Computer** | Computer-use agent | Artifact-first prompting, scoped permissions, verification steps |
-| **OpenClaw** | Computer-use agent | Conversational precision, persistent memory, security constraints |
-| **Perplexity / SearchGPT** | Search AI | Mode spec: search vs analyze vs compare |
-| **Midjourney** | Image AI | Comma-separated descriptors, parameters, negative prompts |
-| **DALL-E 3** | Image AI | Prose description, text exclusion — edit vs generate detection |
-| **Stable Diffusion** | Image AI | Weight syntax `(word:1.3)`, CFG guidance, mandatory negative prompt |
-| **SeeDream** | Image AI | Art style first, mood and atmosphere descriptors, negative prompt |
-| **ComfyUI** | Image AI | Positive/negative node split, checkpoint-specific syntax |
-| **Meshy / Tripo / Rodin** | 3D AI | Style + export format + polygon budget + rig requirements |
-| **BlenderGPT** | 3D AI | Python script output, Blender version, scene context |
-| **Unity AI** | 3D / Game AI | Game genre, platform target, mechanic description over code |
-| **Sora / Runway** | Video AI | Camera movement, duration, cut style |
-| **LTX / Dream Machine / Kling** | Video AI | Cinematic language, motion intensity, style reference |
-| **ElevenLabs** | Voice AI | Emotion, pacing, emphasis, speech rate |
-| **Zapier / Make / n8n** | Workflow automation | Trigger app + event, action app + field mapping |
+| **Claude 5 / Claude actual** | LLM de razonamiento y agente | Esfuerzo consciente de modelo, alcance, estructura XML y control de delegación |
+| **ChatGPT / GPT-5.6** | LLM de razonamiento y agente | Enrutamiento Sol/Terra/Luna, contratos lean, control de autonomía y esfuerzo |
+| **Codex** | Agente de código | Alcance de archivos, límites de aprobación, verificación, subagentes acotados |
+| **Grok 4.6** | LLM de razonamiento y agente | Grounding de búsqueda, esfuerzo de razonamiento, herramientas, caching y condiciones de parada |
+| **Gemini 2.x** | LLM de razonamiento | Anclajes de grounding, reglas de citación, bloqueos de formato |
+| **o3 / o4-mini** | LLM de razonamiento | Instrucciones cortas y limpias solamente — nunca agrega CoT (piensan internamente) |
+| **Ollama** | LLM local | Pregunta qué modelo está cargado, incluye system prompt para Modelfile |
+| **Qwen 2.5 / Qwen3** | LLM de peso abierto | Formato de chat template, detección de modo thinking vs non-thinking |
+| **Modelos locales (Llama, Mistral)** | LLM de peso abierto | Prompts más cortos, estructura más simple, sin anidamiento complejo |
+| **DeepSeek-R1** | LLM de razonamiento | Instrucciones cortas y limpias, elimina CoT, suprime output de pensamiento si es necesario |
+| **MiniMax (M3 / M2.7)** | LLM de razonamiento | Clamping de temperatura, control de etiqueta thinking, optimización de output estructurado |
+| **Claude Code** | IA agente | Condiciones de parada, alcance de archivos, output de checkpoint |
+| **Cursor / Windsurf** | IA de IDE | Ruta de archivo, nombre de función, lista de no-tocar, guía secuencial de prompt |
+| **Cline (anteriormente Claude Dev)** | IDE agente | Alcance de archivos, puertas de aprobación, condiciones de parada, desglose de tareas |
+| **GitHub Copilot** | IA de autocompletado | Contrato de función exacto como docstring |
+| **Antigravity** | IDE agente | Prompting basado en tareas, verificación de Artifact, nivel de autonomía |
+| **Bolt / v0 / Lovable** | Generador full-stack | Especificación de stack, versión, qué NO scaffoldar |
+| **Figma Make** | Generador full-stack | Referencias de nombres de componente, alcance frame-to-code |
+| **Google Stitch** | Generador full-stack | Meta de interfaz sobre implementación, especificación de Material Design 3 |
+| **Devin / SWE-agent** | Agente autónomo | Estado inicial, estado objetivo, condiciones de parada |
+| **Manus** | Agente autónomo | Enfoque en resultado de tarea, alcance de permisos, anclajes de memoria |
+| **OpenAI Computer Use** | Agente de uso de computadora | Estado de pantalla, apps permitidas, detente antes de acciones irreversibles |
+| **Perplexity Computer** | Agente de uso de computadora | Prompting artifact-first, permisos acotados, pasos de verificación |
+| **OpenClaw** | Agente de uso de computadora | Precisión conversacional, memoria persistente, restricciones de seguridad |
+| **Perplexity / SearchGPT** | IA de búsqueda | Especificación de modo: búsqueda vs análisis vs comparación |
+| **Midjourney** | IA de imágenes | Descriptores separados por comas, parámetros, prompts negativos |
+| **DALL-E 3** | IA de imágenes | Descripción en prosa, exclusión de texto — detección de edición vs generación |
+| **Stable Diffusion** | IA de imágenes | Sintaxis de peso `(palabra:1.3)`, guía CFG, prompt negativo obligatorio |
+| **SeeDream** | IA de imágenes | Estilo de arte primero, descriptores de ambiente y atmósfera, prompt negativo |
+| **ComfyUI** | IA de imágenes | Split de nodos positivo/negativo, sintaxis específica de checkpoint |
+| **Meshy / Tripo / Rodin** | IA 3D | Estilo + formato de export + presupuesto de polígonos + requisitos de rig |
+| **BlenderGPT** | IA 3D | Output de script Python, versión de Blender, contexto de escena |
+| **Unity AI** | IA 3D / Juego | Género de juego, plataforma objetivo, descripción de mecánica sobre código |
+| **Sora / Runway** | IA de video | Movimiento de cámara, duración, estilo de corte |
+| **LTX / Dream Machine / Kling** | IA de video | Lenguaje cinematográfico, intensidad de movimiento, referencia de estilo |
+| **ElevenLabs** | IA de voz | Emoción, ritmo, énfasis, velocidad del habla |
+| **Zapier / Make / n8n** | Automatización de flujos | App de trigger + evento, app de acción + mapeo de campos |
 
 </details>
 
 ---
 
-## 📐 13 Prompt Templates (Auto-Selected)
+## 📐 13 Plantillas de Prompts (Auto-Seleccionadas)
 
-Prompt Master picks the right architecture for every task automatically and routes silently — you never see the framework name, just the prompt.
+Maestro de Prompts elige la arquitectura correcta para cada tarea automáticamente y enruta silenciosamente — nunca ves el nombre del framework, solo el prompt.
 
 <details>
-<summary><h3> Click to view all 13 templates</h3></summary>
+<summary><h3> Haz clic para ver todas las 13 plantillas</h3></summary>
 
-| Template | Best For |
+| Plantilla | Mejor Para |
 |----------|----------|
-| **RTF** (Role, Task, Format) | Fast one-shot tasks |
-| **CO-STAR** (Context, Objective, Style, Tone, Audience, Response) | Professional documents, reports, business writing |
-| **RISEN** (Role, Instructions, Steps, End Goal, Narrowing) | Complex multi-step projects |
-| **CRISPE** (Capacity, Role, Insight, Statement, Personality, Experiment) | Creative work, brand voice, iterative content |
-| **Auditable Reasoning** | Checkable math, logic, debugging, and analysis without hidden reasoning requests |
-| **Few-Shot** | Consistent structured output, pattern replication |
-| **File-Scope Template** | Cursor, Windsurf, Copilot — any code editing AI |
-| **ReAct + Stop Conditions** | Claude Code, Devin, AutoGPT — any autonomous agent |
-| **Visual Descriptor** | Midjourney, DALL-E, Stable Diffusion, Sora — generation |
-| **Reference Image Editing** | Editing an existing image — detects edit vs generate automatically |
-| **ComfyUI** | Node-based image workflows — positive/negative split per checkpoint |
-| **Prompt Decompiler** | Breaking down, adapting, simplifying, or splitting existing prompts |
-| **Current Claude Task Brief** | Complex, multi-step, or agentic tasks on current Claude models |
+| **RTF** (Rol, Tarea, Formato) | Tareas rápidas de una sola pasada |
+| **CO-STAR** (Contexto, Objetivo, Estilo, Tono, Audiencia, Respuesta) | Documentos profesionales, reportes, escritura de negocios |
+| **RISEN** (Rol, Instrucciones, Pasos, Meta Final, Acotamiento) | Proyectos complejos multi-paso |
+| **CRISPE** (Capacidad, Rol, Insight, Declaración, Personalidad, Experimento) | Trabajo creativo, voz de marca, contenido iterativo |
+| **Razonamiento Auditable** | Matemáticas verificables, lógica, depuración y análisis sin solicitudes de razonamiento oculto |
+| **Few-Shot** | Output estructurado consistente, replicación de patrones |
+| **Plantilla de Alcance de Archivo** | Cursor, Windsurf, Copilot — cualquier IA de edición de código |
+| **ReAct + Condiciones de Parada** | Claude Code, Devin, AutoGPT — cualquier agente autónomo |
+| **Descriptor Visual** | Midjourney, DALL-E, Stable Diffusion, Sora — generación |
+| **Edición de Imagen de Referencia** | Editar una imagen existente — detecta edición vs generación automáticamente |
+| **ComfyUI** | Flujos de trabajo de imágenes basados en nodos — split positivo/negativo por checkpoint |
+| **Decompilador de Prompts** | Descomponer, adaptar, simplificar o dividir prompts existentes |
+| **Brief de Tarea para Claude Actual** | Tareas complejas, multi-paso o agente en modelos Claude actuales |
 
 </details>
 
 ---
 
-## 🛡️ 5 Safe Techniques, Applied When Needed
+## 🛡️ 5 Técnicas Seguras, Aplicadas Cuando se Necesitan
 
-Prompt Master only uses techniques with reliable, bounded effects. Methods known to produce hallucinations or unpredictable output (Tree of Thought, Graph of Thought, Universal Self-Consistency, prompt chaining) are explicitly excluded.
+Maestro de Prompts solo usa técnicas con efectos confiables y acotados. Métodos conocidos por producir alucinaciones o output impredecible (Tree of Thought, Graph of Thought, Universal Self-Consistency, encadenamiento de prompts) están explícitamente excluidos.
 
-| Technique | What It Does |
+| Técnica | Qué Hace |
 |-----------|-------------|
-| **Role Assignment** | Assigns a specific expert identity to calibrate depth and vocabulary |
-| **Few-Shot Examples** | Adds 2-5 examples when format consistency matters more than instructions |
-| **XML Structural Tags** | Wraps sections in XML for Claude-based tools that parse it reliably |
-| **Grounding Anchors** | Adds anti-hallucination rules for factual and citation tasks |
-| **Auditable Reasoning** | Requests conclusions, assumptions, evidence, and verification without hidden reasoning |
+| **Asignación de Rol** | Asigna una identidad experta específica para calibrar profundidad y vocabulario |
+| **Ejemplos Few-Shot** | Agrega 2-5 ejemplos cuando la consistencia de formato importa más que las instrucciones |
+| **Etiquetas Estructurales XML** | Envuelve secciones en XML para herramientas basadas en Claude que las parsean confiablemente |
+| **Anclajes de Grounding** | Agrega reglas anti-alucinación para tareas factuales y de citación |
+| **Razonamiento Auditable** | Solicita conclusiones, supuestos, evidencia y verificación sin razonamiento oculto |
 
 ---
 
-## 🚫 37 Credit-Killing Patterns Detected (with Before/After Examples)
+## 🚫 37 Patrones que Matan Créditos Detectados (con Ejemplos Antes/Después)
 
 <details>
-<summary><h3> Task Patterns (7)</h3></summary>
+<summary><h3> Patrones de Tarea (7)</h3></summary>
 
-| # | Pattern | Before | After |
+| # | Patrón | Antes | Después |
 |---|---------|--------|-------|
-| 1 | **Vague task verb** | "help me with my code" | "Refactor `getUserData()` to use async/await and handle null returns" |
-| 2 | **Two tasks in one prompt** | "explain AND rewrite this function" | Split: explain first, rewrite second |
-| 3 | **No success criteria** | "make it better" | "Done when function passes existing unit tests and handles null input" |
-| 4 | **Over-permissive agent** | "do whatever it takes" | Explicit allowed + forbidden actions list |
-| 5 | **Emotional task description** | "it's totally broken, fix everything" | "Throws uncaught TypeError on line 43 when `user` is null" |
-| 6 | **Build-the-whole-thing** | "build my entire app" | Break into Prompt 1 (scaffold), Prompt 2 (feature), Prompt 3 (polish) |
-| 7 | **Implicit reference** | "now add the other thing we discussed" | Always restate the full task, never reference "the thing we discussed" |
+| 1 | **Verbo de tarea vago** | "ayúdame con mi código" | "Refactoriza `getUserData()` para usar async/await y manejar retornos null" |
+| 2 | **Dos tareas en un prompt** | "explica Y reescribe esta función" | Divide: explica primero, reescribe después |
+| 3 | **Sin criterios de éxito** | "hazlo mejor" | "Terminado cuando la función pase pruebas unitarias existentes y maneje input null" |
+| 4 | **Agente sobre-permisivo** | "haz lo que sea necesario" | Lista explícita de acciones permitidas + lista explícita de acciones prohibidas |
+| 5 | **Descripción emocional de tarea** | "está totalmente roto, arregla todo" | "Lanza TypeError no capturado en línea 43 cuando `user` es null" |
+| 6 | **Construir-todo-de-golpe** | "construye toda mi app" | Divide en Prompt 1 (esqueleto), Prompt 2 (funcionalidad), Prompt 3 (pulido) |
+| 7 | **Referencia implícita** | "ahora agrega la otra cosa que discutimos" | Siempre reafirma la tarea completa, nunca referencies "la cosa que discutimos" |
 
 </details>
 
 <details>
-<summary><h3> Context Patterns (6)</h3></summary>
+<summary><h3> Patrones de Contexto (6)</h3></summary>
 
-### Context Patterns
+### Patrones de Contexto
 
-| # | Pattern | Before | After |
+| # | Patrón | Antes | Después |
 |---|---------|--------|-------|
-| 8 | **Assumed prior knowledge** | "continue where we left off" | Include Memory Block with all prior decisions |
-| 9 | **No project context** | "write a cover letter" | "PM role at B2B fintech, 2yr SWE experience, shipped 3 features as tech lead" |
-| 10 | **Forgotten stack** | New prompt contradicts prior tech choice | Always include Memory Block |
-| 11 | **Hallucination invite** | "what do experts say about X?" | "Cite only sources you are certain of. If uncertain, say so." |
-| 12 | **Undefined audience** | "write something for users" | "Non-technical B2B buyers, no coding knowledge, decision-maker level" |
-| 13 | **No mention of prior failures** | (blank) | "I already tried X and it failed because Y. Do not suggest X." |
-
-</details>
-
-
-<details>
-<summary><h3> Format Patterns (6)</h3></summary>
-
-| # | Pattern | Before | After |
-|---|---------|--------|-------|
-| 14 | **Missing output format** | "explain this concept" | "3 bullet points, each under 20 words, one-sentence summary at top" |
-| 15 | **Implicit length** | "write a summary" | "Write a summary in exactly 3 sentences" |
-| 16 | **No role assignment** | (blank) | "You are a senior backend engineer specializing in Node.js and PostgreSQL" |
-| 17 | **Vague aesthetic adjectives** | "make it look professional" | "Monochrome palette, 16px base font, 24px line height, no decorative elements" |
-| 18 | **No negative prompts (image AI)** | "a portrait of a woman" | Add: "no watermark, no blur, no extra fingers, no distortion, no text" |
-| 19 | **Prose prompt for Midjourney** | Full descriptive sentence | "subject, style, mood, lighting, --ar 16:9 --v 6" |
+| 8 | **Conocimiento previo asumido** | "continúa donde lo dejamos" | Incluye Bloque de Memoria con todas las decisiones previas |
+| 9 | **Sin contexto de proyecto** | "escribe una carta de presentación" | "Rol de PM en fintech B2B, 2 años de experiencia SWE, lideré 3 funcionalidades como tech lead" |
+| 10 | **Stack olvidado** | Nuevo prompt contradice elección técnica previa | Siempre incluye Bloque de Memoria |
+| 11 | **Invitación a alucinar** | "¿qué dicen los expertos sobre X?" | "Cita solo fuentes de las que estés seguro. Si no estás seguro, dilo." |
+| 12 | **Audiencia indefinida** | "escribe algo para usuarios" | "Compradores B2B no técnicos, sin conocimiento de código, nivel de tomador de decisiones" |
+| 13 | **Sin mención de fallos previos** | (vacío) | "Ya intenté X y falló porque Y. No sugieras X." |
 
 </details>
 
 
 <details>
-<summary><h3> Scope Patterns (6)</h3></summary>
+<summary><h3> Patrones de Formato (6)</h3></summary>
 
-| # | Pattern | Before | After |
+| # | Patrón | Antes | Después |
 |---|---------|--------|-------|
-| 20 | **No scope boundary** | "fix my app" | "Fix only login form validation in `src/auth.js`. Touch nothing else." |
-| 21 | **No stack constraints** | "build a React component" | "React 18, TypeScript strict, no external libraries, Tailwind only" |
-| 22 | **No stop condition for agents** | "build the whole feature" | Explicit stop conditions + checkpoint after each step |
-| 23 | **No file path for IDE AI** | "update the login function" | "Update `handleLogin()` in `src/pages/Login.tsx` only" |
-| 24 | **Wrong template for tool** | GPT-style prose used in Cursor | Adapted to File-Scope Template with path + scope |
-| 25 | **Pasting entire codebase** | Full repo context every prompt | Scoped to relevant function and file only |
+| 14 | **Formato de salida faltante** | "explica este concepto" | "3 viñetas, cada una bajo 20 palabras, resumen de una oración al inicio" |
+| 15 | **Longitud implícita** | "escribe un resumen" | "Escribe un resumen en exactamente 3 oraciones" |
+| 16 | **Sin asignación de rol** | (vacío) | "Eres un ingeniero backend senior especializado en Node.js y PostgreSQL" |
+| 17 | **Adjetivos estéticos vagos** | "haz que se vea profesional" | "Paleta monocromática, fuente base 16px, interlineado 24px, sin elementos decorativos" |
+| 18 | **Sin prompts negativos (IA de imágenes)** | "un retrato de una mujer" | Agrega: "sin marca de agua, sin desenfoque, sin dedos extra, sin distorsión, sin texto" |
+| 19 | **Prompt en prosa para Midjourney** | Oración descriptiva completa | "sujeto, estilo, ambiente, iluminación, composición, --ar 16:9 --v 6" |
 
 </details>
 
 
 <details>
-<summary><h3> Reasoning Patterns (5)</h3></summary>
+<summary><h3> Patrones de Alcance (6)</h3></summary>
 
-| # | Pattern | Before | After |
+| # | Patrón | Antes | Después |
 |---|---------|--------|-------|
-| 26 | **No audit contract for logic task** | "which approach is better?" | Request the recommendation, assumptions, criteria, evidence, and checks |
-| 27 | **Requesting hidden reasoning** | "show your chain of thought" | Ask for a concise rationale, evidence, and verification instead |
-| 28 | **Expecting inter-session memory** | "you already know my project" | Re-provide the Memory Block in every new session |
-| 29 | **Contradicting prior work** | New prompt ignores earlier architecture | Include established decisions in the Memory Block |
-| 30 | **No grounding rule for factual tasks** | "summarize what experts say about X" | Require verifiable sources and explicit uncertainty |
+| 20 | **Sin límite de alcance** | "arregla mi app" | "Arregla solo la validación del formulario de login en `src/auth.js`. No toques nada más." |
+| 21 | **Sin restricciones de stack** | "construye un componente React" | "React 18, TypeScript estricto, sin librerías externas, solo Tailwind" |
+| 22 | **Sin condición de parada para agentes** | "construye toda la funcionalidad" | Condiciones de parada explícitas + checkpoint de output después de cada paso |
+| 23 | **Sin ruta de archivo para IA de IDE** | "actualiza la función de login" | "Actualiza `handleLogin()` en `src/pages/Login.tsx` únicamente" |
+| 24 | **Plantilla incorrecta para herramienta** | Prompt en prosa estilo GPT usado en Cursor | Adaptado a Plantilla de Alcance de Archivo (Plantilla G) |
+| 25 | **Pegar todo el código base** | Contexto completo del repo en cada prompt | Acota solo a la función y archivo relevantes |
 
 </details>
 
 <details>
-<summary><h3> Agentic Patterns (7)</h3></summary>
+<summary><h3> Patrones de Razonamiento (5)</h3></summary>
 
-| # | Pattern | Before | After |
+| # | Patrón | Antes | Después |
 |---|---------|--------|-------|
-| 31 | **No starting state** | "build me a REST API" | "Empty Node.js project, Express installed, `src/app.js` exists" |
-| 32 | **No target state** | "add authentication" | "`/src/middleware/auth.js` with JWT verify. `POST /login` and `POST /register` in `/src/routes/auth.js`" |
-| 33 | **Silent agent** | No progress output | "After each step output: ✅ [what was completed]" |
-| 34 | **Unlocked filesystem** | No file restrictions | "Only edit files inside `src/`. Do not touch `package.json`, `.env`, or any config file." |
-| 35 | **No human review trigger** | Agent decides everything | "Stop and ask before: deleting any file, adding any dependency, or touching the database schema" |
-| 36 | **Vague first turn for an agentic model** | "fix the auth bug" with no scope, files, or criteria | Front-load outcome, context, scope, boundaries, and acceptance criteria |
-| 37 | **Context rot on long sessions** | Repeated corrections leave stale assumptions in context | Start fresh for unrelated work or compact around current decisions and state |
+| 26 | **Sin contrato de auditoría para tarea lógica** | "¿qué enfoque es mejor?" | Solicita la recomendación, supuestos, criterios, evidencia y verificaciones |
+| 27 | **Solicitar razonamiento oculto** | "muestra tu cadena de pensamiento" | Elimínalo — pide un razonamiento conciso, evidencia y verificaciones en su lugar |
+| 28 | **Esperar memoria entre sesiones** | "ya conoces mi proyecto" | Siempre re-proporciona el Bloque de Memoria en cada nueva sesión |
+| 29 | **Contradecir trabajo previo** | Nuevo prompt ignora arquitectura anterior | Incluye Bloque de Memoria con todas las decisiones establecidas |
+| 30 | **Sin regla de anclaje para tareas factuales** | "resume lo que los expertos dicen sobre X" | "Usa solo información de la que estés seguro. Di [incertidumbre] si no lo estás." |
+
+</details>
+
+<details>
+<summary><h3> Patrones de Agente (7)</h3></summary>
+
+| # | Patrón | Antes | Después |
+|---|---------|--------|-------|
+| 31 | **Sin estado inicial** | "constrúyeme una API REST" | "Proyecto Node.js vacío, Express instalado, `src/app.js` existe" |
+| 32 | **Sin estado objetivo** | "agrega autenticación" | "`/src/middleware/auth.js` con verificación JWT. `POST /login` y `POST /register` en `/src/routes/auth.js`" |
+| 33 | **Agente silencioso** | Sin output de progreso | "Después de cada paso output: ✅ [lo que se completó]" |
+| 34 | **Sistema de archivos desbloqueado** | Sin restricciones de archivos | "Solo edita archivos dentro de `src/`. No toques `package.json`, `.env`, ni ningún archivo de config." |
+| 35 | **Sin disparador de revisión humana** | El agente decide todo autónomamente | "Detente y pregunta antes de: eliminar cualquier archivo, agregar cualquier dependencia, o cambiar el esquema de la base de datos" |
+| 36 | **Primer turno vago para modelo agente** | "arregla el bug de auth" sin alcance, archivos o criterios | Usa Plantilla M. Carga al frente el resultado, contexto, alcance, límites y criterios de aceptación. |
+| 37 | **Putrefacción de contexto en sesiones largas** | Repite correcciones mientras suposiciones obsoletas permanecen en contexto | Inicia una nueva sesión para trabajo no relacionado; de lo contrario compacta alrededor de decisiones, restricciones y estado actuales. |
 
 </details>
 
 ---
 
-## 🧠 Memory Block System
+## 🧠 Sistema de Bloque de Memoria
 
-When your conversation has history, Prompt Master pulls out prior decisions and prepends a Memory Block so the AI never contradicts earlier work:
+Cuando tu conversación tiene historial, Maestro de Prompts extrae decisiones previas y prepende un Bloque de Memoria para que la IA nunca contradiga trabajo anterior:
 
 ```
-## Memory (Carry Forward from Previous Context)
+## Memoria (Arrastrar desde Contexto Previo)
 - Stack: React 18 + TypeScript + Supabase
-- Auth uses JWT stored in httpOnly cookies, not localStorage
-- Component naming convention: PascalCase, no default exports
-- Design system: Tailwind only, no custom CSS files
-- Architecture: no Redux, context API only
+- Auth usa JWT almacenado en cookies httpOnly, no localStorage
+- Convención de nombres de componentes: PascalCase, sin default exports
+- Sistema de diseño: solo Tailwind, sin archivos CSS personalizados
+- Arquitectura: sin Redux, solo context API
 ```
 
-This is the single biggest fix for long sessions. Most wasted re-prompts come from the AI forgetting what you already decided.
+Esta es la sola corrección más grande para sesiones largas. La mayoría de re-prompts desperdiciados vienen de la IA olvidando lo que ya decidiste.
 
 ---
 
-## ℹ️ Version History
+## ℹ️ Historial de Versiones
 
-- **1.8.0** — Current-model refresh. Added Claude Fable 5, Opus 5, Sonnet 5, GPT-5.6 Sol/Terra/Luna, Codex, and Grok 4.6 routing. Replaced hidden chain-of-thought requests with auditable reasoning and generalized the Claude task brief for current adaptive-thinking models.
-- **1.7.0** — Opus 4.8 compatibility. Made Claude 4.x routing version-aware: durable advice generalized across 4.6/4.7/4.8, added Opus 4.8 (current default) profile, kept Opus 4.7 labeled. De-hardcoded the effort-level note (now harness-managed). Template M and pattern 36 cover 4.7 and 4.8. Fixed a stray fragment in patterns.md.
-- **1.6.0** — Opus 4.7 update. Added Template M (Opus 4.7 Task Brief). Updated Claude and Claude Code routing for literalism, adaptive thinking, xhigh effort, and session hygiene. Added patterns 36–37.
-- **1.5.0** — Added more tool routing. New Agentic AI and 3D Model AI routing added. Fixed description to 189 chars. Removed token estimate from output. Added instruction layer and copywriting placeholders
-- **1.4.0** — Added reference image editing detection, ComfyUI support, Prompt Decompiler mode. Fixed trigger description to invoke correctly in Claude Code. 3 new templates added to references folder
-- **1.3.0** — Rebuilt around PAC2026 positional structure (30/55/15). Silent routing replaces user-facing framework selection. References folder introduced
-- **1.2.0** — Restructured for attention architecture. Removed fabrication-prone techniques (ToT, GoT, USC, prompt chaining). Templates and patterns moved to references folder
-- **1.1.0** — Expanded tool coverage, added memory block system, 35 credit killing patterns
-- **1.0.0** — Initial release
-
----
-
-## 📄 License
-
-MIT: See [LICENSE](LICENSE) for details.
+- **1.8.0** — Actualización de modelos actuales. Agregado Claude Fable 5, Opus 5, Sonnet 5, GPT-5.6 Sol/Terra/Luna, Codex y enrutamiento Grok 4.6. Reemplazadas solicitudes de cadena de pensamiento oculta con razonamiento auditable y generalizado el brief de tarea de Claude para modelos actuales de pensamiento adaptativo.
+- **1.7.0** — Compatibilidad con Opus 4.8. Enrutamiento Claude 4.x consciente de versión: consejo durable generalizado a través de 4.6/4.7/4.8, agregado perfil Opus 4.8 (default actual), mantenido Opus 4.7 etiquetado. Des-hardcodeada la nota de nivel de esfuerzo (ahora gestionada por harness). Plantilla M y patrón 36 cubren 4.7 y 4.8. Arreglado un fragmento suelto en patterns.md.
+- **1.6.0** — Actualización Opus 4.7. Agregada Plantilla M (Brief de Tarea Opus 4.7). Actualizado enrutamiento Claude y Claude Code para literalismo, pensamiento adaptativo, esfuerzo xhigh e higiene de sesión. Agregados patrones 36–37.
+- **1.5.0** — Agregado más enrutamiento de herramientas. Agregado enrutamiento de IA Agente y IA de Modelos 3D. Descripción fijada a 189 caracteres. Eliminada estimación de tokens del output. Agregada capa de instrucción y placeholders de copywriting.
+- **1.4.0** — Agregada detección de edición de imagen de referencia, soporte ComfyUI, modo Decompilador de Prompts. Arreglada descripción de trigger para invocar correctamente en Claude Code. 3 plantillas nuevas agregadas a carpeta de referencias.
+- **1.3.0** — Reconstruido alrededor de estructura posicional PAC2026 (30/55/15). Enrutamiento silencioso reemplaza selección de framework visible al usuario. Introducida carpeta de referencias.
+- **1.2.0** — Reestructurado para arquitectura de atención. Eliminadas técnicas propensas a fabricación (ToT, GoT, USC, encadenamiento de prompts). Plantillas y patrones movidos a carpeta de referencias.
+- **1.1.0** — Cobertura de herramientas expandida, agregado sistema de bloque de memoria, 35 patrones que matan créditos.
+- **1.0.0** — Lanzamiento inicial
 
 ---
 
-## ⭐ Star History
+## 📄 Licencia
 
-[![Star History Chart](https://star-history.dera.page/svg?repos=nidhinjs/prompt-master&type=Date)](https://star-history.dera.page/#nidhinjs/prompt-master&Date)
+MIT: Ver [LICENSE](LICENSE) para detalles.
+
+---
+
+## ⭐ Historial de Estrellas
+
+[![Gráfico de Historial de Estrellas](https://star-history.dera.page/svg?repos=nidhinjs/prompt-master&type=Date)](https://star-history.dera.page/#nidhinjs/prompt-master&Date)
 
 ---
