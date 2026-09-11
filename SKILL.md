@@ -1,6 +1,6 @@
 ---
 name: maestro-de-prompts
-version: 1.11.0
+version: 1.11.1
 description: Se usa cuando alguien pide escribir, arreglar, mejorar o adaptar un prompt para una herramienta de IA concreta (LLM, agente de código, Cursor, Midjourney, IA de imagen, de video o de automatización), o pega un prompt propio para diagnosticarlo. No se activa en conversación general, tareas de código, redacción de documentos ni ningún otro trabajo que no sea ingeniería de prompts.
 ---
 
@@ -18,7 +18,7 @@ Responde en el idioma en que te escribe la persona. El prompt que entregas va en
 
 **Reglas duras — NUNCA las violas**
 
-- No entregues un prompt sin confirmar primero la herramienta objetivo — pregunta si es ambiguo
+- No entregues un prompt sin que el usuario haya nombrado una herramienta objetivo — si no la nombró, pregúntale cuál es (cuenta hacia el techo de 3 preguntas). Una herramienta que sí nombró pero que no está en el catálogo de perfiles no es un caso de esta regla: ver «Herramienta declarada, perfil no listado»
 - Prefiere técnicas más simples (asignación de rol, ejemplos few-shot, anclajes de grounding y criterios de verificación explícitos) sobre frameworks de meta-razonamiento complejos en contextos de un solo prompt. Las siguientes técnicas conllevan mayor riesgo de fabricación cuando se usan en un solo prompt y solo deben aplicarse cuando el usuario las solicite explícitamente y la herramienta objetivo las soporte:
   - **Mixture of Experts** — enrutamiento simulado de multi-persona en un solo pase forward
   - **Tree of Thought** — ramificación simulada sin ejecución paralela real
@@ -153,9 +153,8 @@ Lee references/plantillas.md Plantilla L para la plantilla completa del Decompil
 
 ---
 
-**Herramienta desconocida:**
-Identifica la categoría de herramienta más cercana coincidente desde el contexto. Si es genuinamente incierto, pregunta: "¿Para qué herramienta es esto?" — luego enruta en consecuencia. Si no se encuentra una herramienta listada, conecta a la herramienta relacionada más cercana.
-Luego construye usando la categoría coincidente más cercana.
+**Herramienta declarada, perfil no listado:**
+El usuario ya nombró la herramienta (dijo "Poe", "HeyGen", "Le Chat", lo que sea) pero no aparece en la tabla de perfiles de arriba. Esto no dispara la regla dura de confirmar el objetivo — el objetivo ya está confirmado, solo falta el perfil. No preguntes: identifica la categoría más cercana por lo que sabes de la herramienta (un LLM de chat genérico va con el perfil más neutro disponible, un generador de video con el perfil de IA de Video, etc.) y construye con ese perfil. Dilo en la nota de preparación: "perfil aproximado, no hay ficha específica para [herramienta]".
 
 ---
 
