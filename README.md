@@ -20,6 +20,12 @@ mkdir -p ~/.claude/skills
 git clone https://github.com/Carlosyekana/Tutor-prompt.git ~/.claude/skills/maestro-de-prompts
 ```
 
+### Otras plataformas — ChatGPT, Gemini, Copilot, Mistral…
+
+Abre [`portable/prompt-portable.md`](portable/prompt-portable.md), copia todo lo que va a partir de la primera línea de guiones y pégalo como primer mensaje. Es la skill entera en un archivo, sin remisiones a nada externo. Después escribe tu solicitud.
+
+La carpeta `portable/` no es parte de la skill: si instalaste clonando, puedes borrarla sin consecuencias.
+
 ---
 
 ## 🔥 El problema que resuelve
@@ -88,6 +94,7 @@ Maestro de Prompts ejecuta un pipeline estructurado en cada solicitud:
 6. **Verifica la vigencia del modelo** — contrasta modelos exactos y controles con la documentación oficial del proveedor cuando la solicitud depende de "el más reciente"
 7. **Ejecuta una auditoría de eficiencia de tokens** — elimina cada palabra que no cambia el resultado
 8. **Entrega el prompt** — un bloque limpio y copiable con una nota de estrategia de una línea
+9. **Te explica qué cambió** — en lenguaje llano: qué le faltaba a tu pedido, qué hace cada parte del prompt que te entregó, por qué esa forma y no la obvia, y dos o tres consejos para la próxima. Nunca nombres de frameworks ni de niveles
 
 ---
 
@@ -110,7 +117,13 @@ shallow depth of field --ar 16:9 --v 6 --style raw
 negative: blurry, low quality, watermark, cartoon, anime, extra limbs
 ```
 
-**🎯 Objetivo:** Midjourney · **⚡ Framework:** Descriptor Visual · **💰 Tokens:** Ligero (~60) · **💡 Estrategia:** descriptores separados por comas en lugar de prosa, iluminación y ambiente anclados desde el inicio, relación de aspecto y versión fijadas, y prompt negativo que previene la deriva de estilo.
+**🎯 Objetivo:** Midjourney · **💡** descriptores separados por comas en lugar de prosa, iluminación y ambiente anclados desde el inicio, relación de aspecto y versión fijadas, y prompt negativo que previene la deriva de estilo.
+
+**Qué cambié y por qué**
+
+- **Qué le faltaba:** el pedido era una frase en prosa, sin luz, sin encuadre y sin decir qué NO querías ver.
+- **Qué le puse:** la escena en descriptores sueltos —sujeto, luz, ambiente, encuadre— porque Midjourney lee listas, no oraciones; y una lista de lo que debe evitar, que es lo que frena las manos de seis dedos y las marcas de agua.
+- **Para la próxima:** escribe primero el sujeto y después la luz; son las dos palancas que más cambian la imagen.
 
 ---
 
@@ -194,7 +207,13 @@ Done When:
 - Opens in browser with zero console errors
 ```
 
-**🎯 Objetivo:** Claude Code · **💰 Tokens:** Medio (~380) · **💡 Estrategia:** cada pista estética vaga traducida a valores hexadecimales exactos y especificaciones en píxeles — Claude Code no tiene que adivinar. Las animaciones se definen con duración, método y disparador exactos, sin margen de interpretación.
+**🎯 Objetivo:** Claude Code · **💡** cada pista estética vaga traducida a valores hexadecimales exactos y especificaciones en píxeles — Claude Code no tiene que adivinar. Las animaciones se definen con duración, método y disparador exactos, sin margen de interpretación.
+
+**Qué cambié y por qué**
+
+- **Qué le faltaba:** "que se vea como Notion" y "animaciones suaves" son gustos, no instrucciones: nada ahí se puede verificar.
+- **Qué le puse:** traduje cada gusto a un número —color en hexadecimal, espaciado en píxeles, duración en milisegundos— y agregué dónde debe parar, porque un agente sin criterio de terminado sigue inventando pantallas.
+- **Para la próxima:** antes de pedir, pregúntate cómo comprobarías que quedó bien; eso que responderías es el criterio que le falta al prompt.
 
 ---
 
@@ -420,6 +439,9 @@ Esta es la corrección individual más importante para sesiones largas. La mayor
 
 ## ℹ️ Historial de versiones
 
+- **1.11.0** — El bloque de aprendizaje pasa de tres líneas a cuatro partes: qué le faltaba, cómo quedó armado (una línea por cada parte del prompt entregado), por qué esa forma y no la obvia, y dos o tres consejos para la próxima. Techo de 250 palabras. La regla de preguntas deja de ser solo un techo y pasa a tener piso: pregunta por cada dimensión crítica que falte, hasta tres, y si no pregunta nada declara sus supuestos. Nueva regla de idioma: responde en el idioma de quien escribe, y el prompt va en ese idioma salvo que la herramienta rinda mejor en otro. Probado el portable en Gemini.
+- **1.10.0** — Modo tutor. Cada entrega suma un bloque fijo de tres líneas —qué le faltaba al pedido, qué palanca se aplicó y qué probar la próxima vez— en lenguaje llano, sin nombres de framework ni de nivel: la skill deja de ser solo una máquina de prompts y transfiere el método. El portable sale del `.zip` y viaja junto a él: la carpeta que se instala en `~/.claude/skills/` queda solo con `SKILL.md` y `references/`. Los 29 perfiles de herramientas salen del procedimiento a `references/herramientas.md`: `SKILL.md` baja de 42 KB a 21 KB y deja de pagar el catálogo entero en cada activación; de paso, la parte que caduca queda aislada en un archivo que se revisa solo.
+- **1.9.1** — Pasada de castellano sobre la skill y las referencias: se eliminan los anglicismos que debilitaban las reglas duras ("output" como verbo, "prependa", "scaffoldar"). Etiquetas Estructurales XML pasa a estar declarada como técnica segura también en el procedimiento, no solo en esta tabla. Descripción reescrita para que abra por condiciones de activación. Corregido el generador del portable: ya no altera los encabezados que viven dentro de los bloques de código de las plantillas.
 - **1.9.0** — Agregada la Escalera de Prompting (Niveles 0–6) como sistema de diagnóstico y escalada de prompts, integrada desde talleres prácticos de prompting estratégico (prospectiva e investigación en salud). Cuatro técnicas seguras nuevas: Poda Estratégica, Socrático, Abogado del Diablo y Traductor de Audiencias. Nuevo archivo de referencia `references/escalera.md` con la progresión completa y ejemplos trabajados. Eliminadas las bases en inglés de la versión anterior (`references/patterns.md`, `references/templates.md`); el contenido canónico vive en las versiones en español.
 - **1.8.0** — Actualización de modelos actuales. Agregados Claude Fable 5, Opus 5, Sonnet 5, GPT-5.6 Sol/Terra/Luna, Codex y enrutamiento de Grok 4.6. Reemplazadas las solicitudes de cadena de pensamiento oculta con razonamiento auditable y generalizado el brief de tarea de Claude para los modelos actuales de pensamiento adaptativo.
 - **1.7.0** — Compatibilidad con Opus 4.8. Enrutamiento Claude 4.x consciente de versión: consejo durable generalizado a través de 4.6/4.7/4.8, perfil de Opus 4.8 agregado, Opus 4.7 mantenido como etiquetado. Nota de nivel de esfuerzo des-hardcodeada (ahora gestionada por el harness). La Plantilla M y el patrón 36 cubren 4.7 y 4.8.
