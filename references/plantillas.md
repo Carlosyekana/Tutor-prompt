@@ -11,7 +11,7 @@ Biblioteca completa de plantillas para Maestro de Prompts. Lee la plantilla rele
 | [C — RISEN](#plantilla-c--risen) | Proyectos complejos de múltiples pasos |
 | [D — CRISPE](#plantilla-d--crispe) | Trabajo creativo, voz de marca |
 | [E — Razonamiento Auditable](#plantilla-e--razonamiento-auditable) | Lógica, matemáticas, análisis, depuración |
-| [F — Few-Shot](#plantilla-f--few-shot) | Output estructurado consistente, replicación de patrones |
+| [F — Few-Shot](#plantilla-f--few-shot) | Salida estructurada consistente, replicación de patrones |
 | [G — Alcance de Archivo](#plantilla-g--alcance-de-archivo) | Cursor, Windsurf, Copilot — IA de edición de código |
 | [H — ReAct + Condiciones de Parada](#plantilla-h--react--condiciones-de-parada) | Claude Code, Devin — agentes autónomos |
 | [I — Descriptor Visual](#plantilla-i--descriptor-visual) | Midjourney, DALL-E, Stable Diffusion, Sora |
@@ -51,7 +51,7 @@ Objetivo: [Meta exacta — qué se ve como éxito]
 Estilo: [Estilo de escritura: formal / conversacional / técnico / narrativo]
 Tono: [Registro emocional: autoritario / empático / urgente / neutral]
 Audiencia: [Quién lee esto — su nivel de conocimiento y expectativas]
-Respuesta: [Formato, longitud y estructura del output]
+Respuesta: [Formato, longitud y estructura de la salida]
 ```
 
 **Ejemplo:**
@@ -68,7 +68,7 @@ Respuesta: Máximo 5 oraciones. Línea de asunto incluida. Sin viñetas.
 
 ## Plantilla C — RISEN
 
-*Rol, Instrucciones, Pasos, Meta Final, Acotamiento. Úsala para proyectos complejos, tareas de múltiples pasos y cualquier output que requiera una secuencia clara de acciones.*
+*Rol, Instrucciones, Pasos, Meta Final, Acotamiento. Úsala para proyectos complejos, tareas de múltiples pasos y cualquier salida que requiera una secuencia clara de acciones.*
 
 ```
 Rol: [Identidad experta que la IA debe adoptar]
@@ -77,7 +77,7 @@ Pasos:
   1. [Primera acción]
   2. [Segunda acción]
   3. [Continuar según sea necesario]
-Meta Final: [Qué debe lograr el output final]
+Meta Final: [Qué debe lograr la salida final]
 Acotamiento: [Restricciones, límites de alcance, qué excluir]
 ```
 
@@ -152,7 +152,7 @@ No reveles cadena de pensamiento oculta ni razonamiento privado. Mantén el razo
 
 ## Plantilla F — Few-Shot
 
-*Úsala cuando el formato de output es más fácil de mostrar que de describir. Los ejemplos superan a las instrucciones escritas para tareas sensibles al formato, siempre.*
+*Úsala cuando el formato de salida es más fácil de mostrar que de describir. Los ejemplos superan a las instrucciones escritas para tareas sensibles al formato, siempre.*
 
 ```
 [Instrucción de tarea]
@@ -244,8 +244,8 @@ Pausa y pide revisión humana cuando:
 - La tarea requiere cambios fuera del alcance declarado
 
 Checkpoints:
-Después de cada paso mayor, output: ✅ [lo que se completó]
-Al final, output un resumen completo de cada archivo cambiado.
+Después de cada paso mayor, entrega: ✅ [lo que se completó]
+Al final, entrega un resumen completo de cada archivo cambiado.
 ```
 
 ---
@@ -311,7 +311,7 @@ Prompt negativo: sin elementos nuevos, sin cambios de estilo, sin cambios de fon
 
 ## Plantilla K — ComfyUI
 
-*Úsala para flujos de trabajo basados en nodos de ComfyUI. Siempre output los prompts Positivo y Negativo como bloques separados. Pregunta por el modelo de checkpoint antes de escribir — la sintaxis y los límites de tokens difieren por modelo.*
+*Úsala para flujos de trabajo basados en nodos de ComfyUI. Entrega siempre los prompts Positivo y Negativo como bloques separados. Pregunta por el modelo de checkpoint antes de escribir — la sintaxis y los límites de tokens difieren por modelo.*
 
 **Pregunta primero si no se indica:**
 "¿Qué modelo de checkpoint estás usando? (SD 1.5, SDXL, Flux, u otro)"
@@ -350,7 +350,7 @@ RESOLUTION: [ancho x alto — debe ser divisible por 64]
 **Para tareas de Adaptar, siempre pregunta:**
 "¿De qué herramienta es el prompt original, y para qué herramienta lo estás adaptando?"
 
-**Formato de output para Descomponer:**
+**Formato de salida para Descomponer:**
 ```
 Prompt original: [pegar]
 
@@ -358,13 +358,13 @@ Análisis de estructura:
 - Rol/Identidad: [qué rol se asigna y por qué]
 - Tarea: [qué acción se solicita]
 - Restricciones: [qué límites se establecen]
-- Formato: [qué forma de output se espera]
-- Debilidades: [qué falta o podría causar output incorrecto]
+- Formato: [qué forma de salida se espera]
+- Debilidades: [qué falta o podría causar salida incorrecta]
 
 Arreglo recomendado: [versión reescrita con huecos llenos]
 ```
 
-**Formato de output para Adaptar:**
+**Formato de salida para Adaptar:**
 ```
 Original ([herramienta fuente]): [prompt original]
 
@@ -376,7 +376,7 @@ Cambios clave realizados:
 - [cambio 2 y por qué]
 ```
 
-**Formato de output para Dividir:**
+**Formato de salida para Dividir:**
 ```
 Prompt original: [pegar]
 
@@ -388,7 +388,7 @@ Prompt 1 — [qué maneja]:
 Prompt 2 — [qué maneja]:
 [bloque de prompt]
 
-Ejecútalos en orden. Cada output alimenta el siguiente.
+Ejecútalos en orden. Cada salida alimenta a la siguiente.
 ```
 
 ---
@@ -425,7 +425,7 @@ Ejecútalos en orden. Cada output alimenta el siguiente.
 - Detente y pregunta antes de acciones destructivas o irreversibles, escrituras externas, compras, expansión material de alcance o decisiones que requieran input exclusivo del usuario.
 
 ## Evidencia de Progreso
-Para trabajo de larga duración, reporta progreso solo cuando cambie o cuando se alcance un checkpoint. Ancla cada afirmación de completitud en un resultado de herramienta, artefacto cambiado o output de verificación.
+Para trabajo de larga duración, reporta progreso solo cuando cambie o cuando se alcance un checkpoint. Ancla cada afirmación de completitud en un resultado de herramienta, artefacto cambiado o salida de verificación.
 ```
 
 **Esfuerzo** — configúralo en la API o harness en lugar de solicitar razonamiento privado en el prompt. Comienza con el default del modelo, bájalo para trabajo rutinario de alcance definido, y súbelo solo cuando la dificultad de la tarea justifique el costo.

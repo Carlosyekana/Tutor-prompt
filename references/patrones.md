@@ -50,7 +50,7 @@
 |---|--------|-------------|-----------|
 | 20 | **Sin límite de alcance** | "arregla mi app" | "Arregla solo la validación del formulario de login en `src/auth.js`. No toques nada más." |
 | 21 | **Sin restricciones de stack** | "construye un componente React" | "React 18, TypeScript estricto, sin librerías externas, solo Tailwind" |
-| 22 | **Sin condición de parada para agentes** | "construye toda la funcionalidad" | Condiciones de parada explícitas + ✅ output de checkpoint después de cada paso |
+| 22 | **Sin condición de parada para agentes** | "construye toda la funcionalidad" | Condiciones de parada explícitas + ✅ salida de checkpoint después de cada paso |
 | 23 | **Sin ruta de archivo para IA de IDE** | "actualiza la función de login" | "Actualiza `handleLogin()` en `src/pages/Login.tsx` únicamente" |
 | 24 | **Plantilla incorrecta para la herramienta** | Prompt en prosa estilo GPT usado en Cursor | Adapta a la Plantilla de Alcance de Archivo (Plantilla G) |
 | 25 | **Pegar todo el código base** | Contexto completo del repo en cada prompt | Limita solo a la función y archivo relevantes |
@@ -75,7 +75,7 @@
 |---|--------|-------------|-----------|
 | 31 | **Sin estado inicial** | "constrúyeme una API REST" | "Proyecto Node.js vacío, Express instalado, `src/app.js` existe" |
 | 32 | **Sin estado objetivo** | "agrega autenticación" | "`/src/middleware/auth.js` con verificación JWT. `POST /login` y `POST /register` en `/src/routes/auth.js`" |
-| 33 | **Agente silencioso** | Sin output de progreso | "Después de cada paso output: ✅ [lo que se completó]" |
+| 33 | **Agente silencioso** | Sin salida de progreso | "Después de cada paso entrega: ✅ [lo que se completó]" |
 | 34 | **Sistema de archivos desbloqueado** | Sin restricciones de archivos | "Solo edita archivos dentro de `src/`. No toques `package.json`, `.env`, ni ningún archivo de configuración." |
 | 35 | **Sin disparador de revisión humana** | El agente decide todo autónomamente | "Detente y pregunta antes de: eliminar cualquier archivo, agregar cualquier dependencia, o cambiar el esquema de la base de datos" |
 | 36 | **Primer turno vago para modelo agente** | "arregla el bug de auth" sin alcance, archivos o criterios | Usa la Plantilla M. Carga al frente el resultado, contexto relevante, alcance de archivos, restricciones, límites de acción y criterios de aceptación. |

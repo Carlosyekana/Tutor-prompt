@@ -57,7 +57,7 @@ Regla de uso: escala solo hasta el nivel que el objetivo requiere. Cada nivel ag
 > **Paso 2:** Deduce por qué es necesario capacitar al personal médico frente al riesgo de sesgo algorítmico.
 > **Paso 3:** Redacta una conclusión sobre el perfil del médico-investigador moderno."
 
-**⚠️ Compatibilidad con modelos actuales:** implementa este nivel como **razonamiento auditable por pasos** — cada paso pide conclusión, supuestos y evidencia, nunca una traza de pensamiento oculta. NO lo uses en modelos de razonamiento nativo (o3/o4-mini, DeepSeek-R1, Qwen3 en modo thinking, GPT-5.6 con esfuerzo alto): ahí degrada el output; basta con declarar la meta y el formato.
+**⚠️ Compatibilidad con modelos actuales:** implementa este nivel como **razonamiento auditable por pasos** — cada paso pide conclusión, supuestos y evidencia, nunca una traza de pensamiento oculta. NO lo uses en modelos de razonamiento nativo (o3/o4-mini, DeepSeek-R1, Qwen3 en modo thinking, GPT-5.6 con esfuerzo alto): ahí degrada la salida; basta con declarar la meta y el formato.
 
 ---
 
